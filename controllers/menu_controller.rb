@@ -18,15 +18,15 @@ class MenuController
     puts "You picked #{selection}"
     case selection
       when 1
-        # system "clear"
+        
         view_all_entries
         main_menu
       when 2
-        # system "clear"
+        
         create_entry
         main_menu
       when 3
-        # system "clear"
+        
         read_csv
         main_menu
       when 4
@@ -48,14 +48,11 @@ class MenuController
 
   def entry_submenu(entry)
     puts "n - next entry"
-    puts "d - delete entry"
     puts "e - edit this entry"
     puts "m - return to main menu"
     selection = gets.chomp
     case selection
       when "n"
-      when "d"
-        delete_entry(entry)
       when "e"
         # system "clear"
         edit_entry(entry)
@@ -80,11 +77,6 @@ class MenuController
     address_book.add_entry(name, phone_number, email)
     # system "clear"
     puts "Entry created for #{name}."
-  end
-
-  def delete_entry(entry)
-    address_book.entries.delete(entry)
-    puts "#{entry.name} has been deleted"
   end
 
   def edit_entry(entry)

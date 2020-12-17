@@ -17,12 +17,6 @@ class AddressBook
     entries.insert(index, Entry.new(name, phone_number, email))
   end
 
-  def remove_entry(name, phone_number, email)
-    entries.each do |entry|
-      entries.delete(entry) if name == entry.name && phone_number = entry.phone_number && email == entry.email
-    end
-  end
-
   def import_from_csv(f_name)
     # Convert file to text.
     csv_text = File.read(f_name)
@@ -35,7 +29,5 @@ class AddressBook
       add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
     end
   end
-
-
 
 end
