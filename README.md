@@ -64,6 +64,49 @@ In future, IT & Analytics team can get access the records and do business analys
 - utilise a recognised format or set of conventions for a control flow diagram, such as UML.
 ![picture](img/Capture7.PNG)
 
+## Develop an implementation plan which:
+- outlines how each feature will be implemented and a checklist of tasks for each feature
+- prioritise the implementation of different features, or checklist items within a feature
+- provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
+
+Utilise a suitable project management platform to track this implementation plan
+
+> Your checklists for each feature should have at least 5 items.
+
+Feature 1 checklist:
+1. Import CSV package to utilise further features
+2. Create MenuController class to hold the methods of features
+3. Create main_menu method to prompt user selection
+4. Create error handling to display error message
+5. Create view_all_entries method to read the data records
+
+Feature 2 checklist:
+1. create create_entry method in the menu_controller to prompt user to create entry
+2. create addressBook class to control csv file.
+3. initialize the addressBook class to the menuController.
+4. create add_entry method to add new entries to csv file.
+5. add created methods to the main_menu method looping to run the app.
+
+Feature 3 checklist:
+1. create read_csv metod under the menu_controller to validate the file name input and display message
+2. under the addressBook class, create import_from_csv method to read the csv file and append the records to the application through looping.
+
+## Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
+
+steps to install the application:
+
+1. Please install ruby refer to [this link](https://www.ruby-lang.org/en/downloads/)
+2. Next please install Bundler gem with following command:
+`gem install bundler`
+3. Please install csv package
+`gem install csv`
+4. Run the app
+`ruby index.rb`
+
+
+
+
+
 
 
 
