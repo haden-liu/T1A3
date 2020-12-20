@@ -1,4 +1,5 @@
 require_relative '../models/address_book'
+require 'csv'
 
 class MenuController
   attr_reader :address_book
@@ -40,29 +41,13 @@ class MenuController
   end
 
   def view_all_entries
-    address_book.entries.each do |entry|
-      puts entry.to_s
-      entry_submenu(entry)
+    begin
+    CSV.foreach('new_entries.csv') do |row|
+      puts row.inspect
     end
-  end
+    rescue
+      puts "please add the first entry"
 
-  def entry_submenu(entry)
-    puts "n - next entry"
-    puts "e - edit this entry"
-    puts "m - return to main menu"
-    selection = gets.chomp
-    case selection
-      when "n"
-      when "e"
-        # system "clear"
-        edit_entry(entry)
-        entry_submenu(entry)
-      when "m"
-        main_menu
-      else  # Catch invalid user input and proper user to retry.
-        # system "clear"
-        puts "#{selection} is not a valid input."
-        entry_submenu(entry)
     end
   end
 
@@ -79,21 +64,6 @@ class MenuController
     puts "Entry created for #{name}."
   end
 
-  def edit_entry(entry)
-    puts "Leave fields blank if no change desired for that field."
-    print "Update name to: "
-    name = gets.chomp
-    print "Update phone number to:"
-    phone_number = gets.chomp
-    print "Update email to: "
-    email = gets.chomp
-    entry.name = name if !name.empty?
-    entry.phone_number = phone_number if !phone_number.empty?
-    entry.email = email if !email.empty?
-    # system "clear"
-    puts "Updated entry: "
-    puts entry
-  end
 
   def read_csv
     print "Enter the name of the file you would like to upload: "

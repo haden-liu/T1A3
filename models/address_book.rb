@@ -10,12 +10,16 @@ class AddressBook
   end
 
   def add_entry(name, phone_number, email)
-    index = 0
-    entries.each do |entry|
-      index += 1 unless name < entry.name
+    CSV.open('new_entries.csv', 'a+') do |row|
+      row << [name, phone_number, email]
     end
-    entries.insert(index, Entry.new(name, phone_number, email))
+    # index = 0
+    # entries.each do |entry|
+    #   index += 1 unless name < entry.name
+    # end
+    # entries.insert(index, Entry.new(name, phone_number, email))
   end
+
 
   def import_from_csv(f_name)
     # Convert file to text.
